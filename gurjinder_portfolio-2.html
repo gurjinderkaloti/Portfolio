@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gurjinder Kaur Kaloti — FinCrime QA Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal-dark: #0d3d47;
+  --teal-mid: #1a6475;
+  --teal-light: #2e9db5;
+  --teal-pale: #e4f4f7;
+  --gold: #b89a5a;
+  --gold-light: #d4b878;
+  --white: #fafaf8;
+  --off-white: #f2f0eb;
+  --gray-light: #e8e6e0;
+  --gray-mid: #8a8880;
+  --dark: #1a1a18;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+body { font-family:'DM Sans',sans-serif; background:var(--white); color:var(--dark); overflow-x:hidden; }
+
+nav {
+  position:fixed; top:0; left:0; right:0; z-index:100;
+  background:rgba(13,61,71,0.97); backdrop-filter:blur(8px);
+  display:flex; align-items:center; justify-content:space-between;
+  padding:0 48px; height:56px;
+}
+.nav-name { font-family:'Cormorant Garamond',serif; font-size:16px; color:var(--white); font-weight:600; }
+.nav-links { display:flex; gap:28px; }
+.nav-links a { font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,0.55); text-decoration:none; transition:color 0.2s; }
+.nav-links a:hover { color:var(--gold); }
+
+.hero {
+  background:var(--teal-dark); min-height:100vh;
+  display:grid; grid-template-columns:1fr 1fr;
+  position:relative; overflow:hidden; padding-top:56px;
+}
+.hero::before {
+  content:''; position:absolute; top:-120px; right:-120px;
+  width:500px; height:500px; border-radius:50%;
+  background:radial-gradient(circle,rgba(46,157,181,0.15) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero-left { padding:80px 60px; display:flex; flex-direction:column; justify-content:center; position:relative; z-index:1; }
+.hero-eyebrow { font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:18px; }
+.hero-name { font-family:'Cormorant Garamond',serif; font-size:clamp(40px,5vw,66px); font-weight:600; color:var(--white); line-height:1.05; margin-bottom:8px; }
+.hero-title { font-family:'Cormorant Garamond',serif; font-size:clamp(15px,2vw,21px); color:var(--teal-light); margin-bottom:32px; }
+.hero-divider { width:55px; height:2px; background:linear-gradient(90deg,var(--gold),transparent); margin-bottom:24px; }
+.hero-bio { font-size:14px; line-height:1.8; color:rgba(250,250,248,0.7); max-width:430px; margin-bottom:44px; font-weight:300; }
+.hero-contact { display:flex; flex-direction:column; gap:10px; }
+.contact-item { display:flex; align-items:center; gap:12px; font-size:13px; color:rgba(250,250,248,0.6); }
+.contact-item .label { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); min-width:60px; }
+.contact-item a { color:rgba(250,250,248,0.75); text-decoration:none; }
+.contact-item a:hover { color:var(--teal-light); }
+.hero-right { display:flex; align-items:center; justify-content:center; padding:80px 60px; position:relative; z-index:1; }
+.stats-grid { display:grid; grid-template-columns:1fr 1fr; gap:2px; width:100%; max-width:360px; }
+.stat-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); padding:30px 26px; }
+.stat-number { font-family:'Cormorant Garamond',serif; font-size:40px; font-weight:700; color:var(--white); line-height:1; margin-bottom:6px; }
+.stat-number span { font-size:20px; color:var(--gold); }
+.stat-label { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:rgba(250,250,248,0.4); }
+
+section { padding:80px 0; }
+.container { max-width:1080px; margin:0 auto; padding:0 48px; }
+.section-label { font-size:9px; letter-spacing:3.5px; text-transform:uppercase; color:var(--gold); font-weight:500; margin-bottom:10px; }
+.section-title { font-family:'Cormorant Garamond',serif; font-size:clamp(28px,3.5vw,42px); font-weight:600; color:var(--teal-dark); line-height:1.15; margin-bottom:36px; }
+
+.case-section { background:var(--teal-dark); position:relative; overflow:hidden; }
+.case-section .section-title { color:var(--white); }
+.badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px; }
+.case-badge { background:rgba(184,154,90,0.15); border:1px solid rgba(184,154,90,0.35); color:var(--gold-light); font-size:9px; letter-spacing:2px; text-transform:uppercase; padding:5px 12px; font-weight:500; }
+.case-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); }
+.case-header { background:rgba(255,255,255,0.06); padding:24px 36px; border-bottom:1px solid rgba(255,255,255,0.08); }
+.case-header-title { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--white); }
+.case-overview { padding:28px 36px; border-bottom:1px solid rgba(255,255,255,0.07); }
+.block-label { font-size:8px; letter-spacing:2.5px; text-transform:uppercase; color:var(--gold); margin-bottom:10px; font-weight:600; }
+.block-text { font-size:13.5px; line-height:1.75; color:rgba(250,250,248,0.72); font-weight:300; }
+.case-grid { display:grid; grid-template-columns:1fr 1fr; }
+.case-grid-cell { padding:28px 36px; border-right:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06); }
+.case-grid-cell:nth-child(2n) { border-right:none; }
+.case-grid-cell:nth-child(3), .case-grid-cell:nth-child(4) { border-bottom:none; }
+.outcome-box { margin:0 36px 36px; background:rgba(46,157,181,0.1); border:1px solid rgba(46,157,181,0.2); padding:22px 28px; display:flex; gap:14px; align-items:flex-start; }
+.outcome-icon { font-size:18px; flex-shrink:0; margin-top:2px; }
+.outcome-text { font-size:13.5px; line-height:1.75; color:rgba(250,250,248,0.8); font-weight:300; }
+.outcome-text strong { color:var(--teal-light); font-weight:500; }
+
+.skills-section { background:var(--off-white); }
+.skills-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2px; }
+.skill-card { background:var(--white); padding:32px 28px; position:relative; overflow:hidden; transition:transform 0.3s; }
+.skill-card::after { content:''; position:absolute; bottom:0; left:0; right:0; height:2px; background:linear-gradient(90deg,var(--teal-light),var(--gold)); transform:scaleX(0); transition:transform 0.3s; transform-origin:left; }
+.skill-card:hover { transform:translateY(-3px); }
+.skill-card:hover::after { transform:scaleX(1); }
+.skill-icon { width:38px; height:38px; border-radius:8px; background:var(--teal-pale); display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:17px; }
+.skill-name { font-family:'Cormorant Garamond',serif; font-size:17px; font-weight:600; color:var(--teal-dark); margin-bottom:8px; }
+.skill-desc { font-size:12.5px; line-height:1.7; color:var(--gray-mid); font-weight:300; }
+
+.experience-section { background:var(--white); }
+.exp-timeline { position:relative; padding-left:30px; }
+.exp-timeline::before { content:''; position:absolute; left:0; top:8px; bottom:0; width:1px; background:linear-gradient(to bottom,var(--teal-light),var(--gray-light)); }
+.exp-item { position:relative; margin-bottom:48px; padding-bottom:48px; border-bottom:1px solid var(--gray-light); }
+.exp-item:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.exp-dot { position:absolute; left:-35px; top:6px; width:11px; height:11px; border-radius:50%; background:var(--teal-light); border:2px solid var(--white); box-shadow:0 0 0 2px var(--teal-light); }
+.exp-meta { display:flex; align-items:baseline; gap:14px; margin-bottom:4px; flex-wrap:wrap; }
+.exp-role { font-family:'Cormorant Garamond',serif; font-size:21px; font-weight:600; color:var(--teal-dark); }
+.exp-date { font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--gold); font-weight:500; }
+.exp-company { font-size:12.5px; color:var(--teal-light); margin-bottom:14px; }
+.exp-bullets { list-style:none; display:flex; flex-direction:column; gap:8px; }
+.exp-bullets li { font-size:13px; line-height:1.7; color:#4a4a48; padding-left:16px; position:relative; font-weight:300; }
+.exp-bullets li::before { content:'—'; position:absolute; left:0; color:var(--gold); }
+
+footer { background:var(--dark); padding:52px 0; text-align:center; }
+footer .fname { font-family:'Cormorant Garamond',serif; font-size:26px; font-weight:600; color:var(--white); margin-bottom:6px; }
+footer .ftagline { font-size:11px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:24px; }
+footer .flinks { display:flex; justify-content:center; gap:28px; flex-wrap:wrap; }
+footer a { font-size:12px; color:rgba(250,250,248,0.45); text-decoration:none; transition:color 0.2s; }
+footer a:hover { color:var(--teal-light); }
+
+.reveal { opacity:0; transform:translateY(22px); transition:opacity 0.7s ease,transform 0.7s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+
+@media(max-width:900px){
+  nav { padding:0 24px; }
+  .hero { grid-template-columns:1fr; }
+  .hero-right { display:none; }
+  .hero-left { padding:60px 28px; }
+  .skills-grid { grid-template-columns:1fr 1fr; }
+  .case-grid { grid-template-columns:1fr; }
+  .case-grid-cell { border-right:none !important; }
+  .container { padding:0 24px; }
+  section { padding:56px 0; }
+}
+@media(max-width:600px){ .skills-grid { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<nav>
+  <span class="nav-name">Gurjinder Kaur Kaloti</span>
+  <div class="nav-links">
+    <a href="#casestudy">Work Sample</a>
+    <a href="#skills">Skills</a>
+    <a href="#experience">Experience</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Professional Portfolio</p>
+    <h1 class="hero-name">Gurjinder<br>Kaur Kaloti</h1>
+    <p class="hero-title">FinCrime Quality Analyst &amp; Compliance Operations</p>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">Over a decade of experience in regulated fintech environments, specialising in KYC document review, fraud and dispute management, and compliance-driven case handling. Known for process discipline, behavioural risk awareness, and the ability to identify financial crime under pressure.</p>
+    <div class="hero-contact" id="contact">
+      <div class="contact-item"><span class="label">Phone</span><span>+91 7347630545</span></div>
+      <div class="contact-item"><span class="label">Email</span><a href="mailto:gurjinder.kaloti@gmail.com">gurjinder.kaloti@gmail.com</a></div>
+      <div class="contact-item"><span class="label">LinkedIn</span><a href="https://linkedin.com/in/gurjinderk" target="_blank">linkedin.com/in/gurjinderk</a></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-card"><div class="stat-number">10<span>+</span></div><div class="stat-label">Years in Fintech</div></div>
+      <div class="stat-card"><div class="stat-number">4<span>+</span></div><div class="stat-label">Years at Nium</div></div>
+      <div class="stat-card"><div class="stat-number">KYC</div><div class="stat-label">Document Review</div></div>
+      <div class="stat-card"><div class="stat-number">C1<span>+</span></div><div class="stat-label">English Fluency</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="case-section" id="casestudy">
+  <div class="container">
+    <p class="section-label reveal">Work Sample</p>
+    <h2 class="section-title reveal">Case Study: Social Engineering<br>&amp; Account Takeover Prevention</h2>
+    <div class="badge-row reveal">
+      <span class="case-badge">Financial Crime</span>
+      <span class="case-badge">Account Takeover</span>
+      <span class="case-badge">Social Engineering</span>
+      <span class="case-badge">KYC Verification</span>
+      <span class="case-badge">Process Adherence</span>
+    </div>
+    <div class="case-card reveal">
+      <div class="case-header">
+        <p class="case-header-title">Identifying a fraudster impersonating a legitimate customer to gain unauthorised account access</p>
+      </div>
+      <div class="case-overview">
+        <p class="block-label">Overview</p>
+        <p class="block-text" style="max-width:800px;">During a live support interaction, I identified and neutralised a social engineering attempt targeting a customer's fintech account. The fraudster attempted to exploit an unverified support channel to force an email address change — a classic account takeover technique. Through strict process adherence, behavioural risk awareness, and proactive follow-up, I prevented unauthorised access and secured the account with zero financial loss.</p>
+      </div>
+      <div class="case-grid">
+        <div class="case-grid-cell">
+          <p class="block-label">01 — Situation</p>
+          <p class="block-text">An unregistered contact reached the chat support channel claiming to be a customer locked out of their account. They requested an immediate email address change, citing urgency around a pending financial transaction. When asked to complete standard identity verification, the individual became hostile — refusing to cooperate, demanding escalation, and applying social pressure to bypass the process. No manager was available at the time.</p>
+        </div>
+        <div class="case-grid-cell">
+          <p class="block-label">02 — Risk Signals Identified</p>
+          <p class="block-text">Several behavioural red flags were present: contact via an unregistered channel, refusal to cooperate with standard verification, artificial urgency created around a financial transaction, and hostility that escalated the moment identity confirmation was requested. These are consistent patterns in social engineering and account takeover fraud.</p>
+        </div>
+        <div class="case-grid-cell">
+          <p class="block-label">03 — Action Taken</p>
+          <p class="block-text">I maintained strict process adherence under pressure and declined to make any account changes without full verification. After the individual disconnected, I proactively contacted the legitimate registered account holder directly by phone. I completed enhanced multi-point verification — including recent transaction history and previously transacted recipient details — going beyond basic demographic checks to confirm I was speaking with the real customer.</p>
+        </div>
+        <div class="case-grid-cell">
+          <p class="block-label">04 — Discovery &amp; Resolution</p>
+          <p class="block-text">During the call, multiple failed login attempts were identified against the customer's registered email — confirming the earlier contact had been a fraudster. The customer had no awareness their account was being targeted. The account was secured immediately, email address updated with the verified customer, and they were advised on digital safety practices including avoiding unknown third-party links and protecting personal email credentials.</p>
+        </div>
+      </div>
+      <div class="outcome-box">
+        <span class="outcome-icon">&#10003;</span>
+        <div>
+          <p class="outcome-text" style="margin-bottom:10px;"><strong>Outcome:</strong> Account takeover prevented with zero financial loss. The legitimate customer's account was fully secured and they were educated on protective measures. The customer later sent a formal written appreciation for the handling of the case.</p>
+          <p class="outcome-text"><strong>Key learning:</strong> Genuine customers cooperate with verification. Resistance, urgency, and hostility are risk signals — not reasons to bypass process. Recognising this behavioural pattern and holding firm without managerial support was the decisive factor in preventing the fraud.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="skills-section" id="skills">
+  <div class="container">
+    <p class="section-label reveal">Core Competencies</p>
+    <h2 class="section-title reveal">What I bring to a QA role</h2>
+    <div class="skills-grid">
+      <div class="skill-card reveal"><div class="skill-icon">&#128269;</div><div class="skill-name">KYC &amp; Document Review</div><div class="skill-desc">First-line validation of customer identity documents — assessing completeness, authenticity, and regulatory compliance before compliance team handoff.</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">&#9878;</div><div class="skill-name">Fraud &amp; Dispute Management</div><div class="skill-desc">End-to-end management of chargeback and dispute cases, coordinating with internal fraud teams to assess validity and drive resolution.</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">&#128203;</div><div class="skill-name">Process Adherence</div><div class="skill-desc">Consistent application of compliance procedures in high-pressure environments — including situations where clients push back against verification requirements.</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">&#129309;</div><div class="skill-name">Peer Coaching &amp; Feedback</div><div class="skill-desc">Identified errors in team members' case handling and communicated corrective guidance clearly, contributing to improved accuracy across the team.</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">&#128279;</div><div class="skill-name">Cross-functional Coordination</div><div class="skill-desc">Worked across KYC, compliance, fraud, and operations teams — escalating cases and coordinating resolutions while maintaining accurate records.</div></div>
+      <div class="skill-card reveal"><div class="skill-icon">&#9997;</div><div class="skill-name">Clear Communication</div><div class="skill-desc">Structured written and verbal communication in regulated contexts — with global clients, internal teams, and management in English (C1+).</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="experience-section" id="experience">
+  <div class="container">
+    <p class="section-label reveal">Career History</p>
+    <h2 class="section-title reveal">Work Experience</h2>
+    <div class="exp-timeline">
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-meta"><span class="exp-role">Senior Analyst — FinCrime Operations</span><span class="exp-date">Sep 2021 — Present</span></div>
+        <div class="exp-company">Nium Pvt. Ltd. | FinTech Financial Services</div>
+        <ul class="exp-bullets">
+          <li>Reviewed and validated customer documents for KYC onboarding and ID verification, ensuring compliance before handoff to internal compliance teams.</li>
+          <li>Identified document discrepancies and invalid submissions, escalating cases where regulatory requirements were not met.</li>
+          <li>Raised and managed chargeback and dispute cases, working with internal fraud teams to assess validity and drive resolution.</li>
+          <li>Coached new team members on process procedures and flagged recurring errors to improve team accuracy.</li>
+          <li>Coordinated with KYC, fraud, and compliance teams on identity verification, account activation, and case escalations.</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-meta"><span class="exp-role">Senior Associate — Compliance &amp; Collections</span><span class="exp-date">May 2020 — Ramp Down</span></div>
+        <div class="exp-company">Radius Global Solutions | American Express</div>
+        <ul class="exp-bullets">
+          <li>Managed customer interactions for American Express in strict compliance with regulatory quality standards.</li>
+          <li>Applied root-cause thinking to resolve complex complaints and escalated systemic issues to supervisors.</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-meta"><span class="exp-role">Senior Executive — Background Verification</span><span class="exp-date">Apr 2018 — Oct 2018</span></div>
+        <div class="exp-company">Hexaware Technologies | First Advantage (Client: Deloitte)</div>
+        <ul class="exp-bullets">
+          <li>Conducted end-to-end background verifications including employment, education, and criminal record checks.</li>
+          <li>Coordinated with external parties to validate information accuracy ensuring compliant and timely case completion.</li>
+        </ul>
+      </div>
+      <div class="exp-item reveal">
+        <div class="exp-dot"></div>
+        <div class="exp-meta"><span class="exp-role">Team Member — Customer Operations</span><span class="exp-date">Sep 2012 — Sep 2014</span></div>
+        <div class="exp-company">Fidelity Information Services (FIS) | O2 Process</div>
+        <ul class="exp-bullets">
+          <li>Handled customer communication in a regulated financial services environment maintaining quality and compliance standards.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p class="fname">Gurjinder Kaur Kaloti</p>
+  <p class="ftagline">FinCrime Quality Analyst — Open to Opportunities</p>
+  <div class="flinks">
+    <a href="mailto:gurjinder.kaloti@gmail.com">gurjinder.kaloti@gmail.com</a>
+    <a href="tel:+917347630545">+91 7347630545</a>
+    <a href="https://linkedin.com/in/gurjinderk" target="_blank">LinkedIn Profile</a>
+  </div>
+</footer>
+
+<script>
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
